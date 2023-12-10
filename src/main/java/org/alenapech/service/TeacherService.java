@@ -6,25 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherService implements UserService<Teacher> {
-    private final List<Teacher> teacherList;
+    private final List<Teacher> teacherList = new ArrayList<>();
 
-    public TeacherService() {
-        this.teacherList = new ArrayList<>();
-    }
-
-    public List<Teacher> getTeacherList() {
+    @Override
+    public List<Teacher> getUserList() {
         return teacherList;
     }
 
     @Override
-    public void create(String firstName, String secondName, String lastName) {
-        int maxId = 0;
-        for (Teacher i : teacherList) {
-            if (maxId < i.getTeacherId()) {
-                maxId = i.getTeacherId();
-            }
-        }
-        maxId++;
-        teacherList.add(new Teacher(maxId, firstName, secondName, lastName));
+    public Class<Teacher> getUserClass() {
+        return Teacher.class;
     }
 }
