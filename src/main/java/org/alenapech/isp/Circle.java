@@ -1,0 +1,15 @@
+package org.alenapech.isp;
+
+public class Circle implements Shape {
+
+    int radius;
+
+    public Circle(int radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double perimetr() {
+        return radius * 2 * 3.14;
+    }
+}
